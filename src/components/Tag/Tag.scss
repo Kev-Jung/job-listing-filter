@@ -1,0 +1,16 @@
+.tag {
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: var(--tag-bg);
+  font-weight: 700;
+
+  &:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+  }
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+  }
+}

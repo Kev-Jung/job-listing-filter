@@ -1,19 +1,23 @@
-$font-main: 'League Spartan',
-sans-serif;
-$primary-color: hsl(180, 29%, 50%);
-$background-color: hsl(180, 52%, 96%);
-
+:root {
+  --font-main: 'League Spartan',
+    sans-serif;
+  --primary-color: hsl(180, 29%, 50%);
+  --bg-color: hsl(180, 52%, 96%);
+  --text-color-grey: hsl(180, 8%, 52%);
+  --featured-pill-color: hsl(180, 14%, 20%);
+  --tag-bg: hsl(180, 31%, 95%);
+}
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $font-main;
-  background-color: $background-color;
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
 }
 
 .header-bg {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 
   &-img {
     display: block;
