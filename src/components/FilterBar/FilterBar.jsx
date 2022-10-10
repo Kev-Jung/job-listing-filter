@@ -14,7 +14,8 @@ const FilterBar = ({ filterTags, setFilterTags }) => {
     <div className="filter-bar-container">
       <div className="tags-container">
         {filterTags.length !== 0 &&
-          filterTags.map((tag, index) => {
+          // maps array of filterTags with no duplicate items
+          [...new Set(filterTags)].map((tag, index) => {
             return (
               <div key={index} className="filter-tag-container">
                 <Tag className="filter-tag">{tag}</Tag>

@@ -19,10 +19,6 @@ function App() {
       setJobPosts(jobs)
   }, [filterTags])
 
-  useEffect(() => {
-    setJobPosts(JOB_POSTINGS_DATA)
-  }, [])
-
   return (
     <>
       <div className='header-bg'>
