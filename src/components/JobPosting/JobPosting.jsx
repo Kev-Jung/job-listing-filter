@@ -19,8 +19,15 @@ const JobPosting = ({ job, setFilterTags }) => {
 
   const tagsList = [role, level, ...languages, ...tools];
 
-  const addFilterTag = (tag) => {
-    setFilterTags((prevTags) => [...prevTags, tag]);
+  const addFilterTag = (tagArray) => {
+    setFilterTags((prevTags) => {
+      const doesFilterTagExist = tagArray.every((tag) =>
+        prevTags.includes(tag)
+      );
+      if (doesFilterTagExist === false) {
+        return [...prevTags, ...tagArray];
+      } else return prevTags;
+    });
   };
 
   return (
@@ -35,7 +42,9 @@ const JobPosting = ({ job, setFilterTags }) => {
           {job.new && <Pill>NEW!</Pill>}
           {featured && <Pill type="featured">FEATURED</Pill>}
         </div>
-        <h4 className="position">{position}</h4>
+        <h4 onClick={() => addFilterTag([role, level])} className="position">
+          {position}
+        </h4>
         <ul>
           <li>{postedAt}</li>
           <li>{contract}</li>
@@ -46,7 +55,11 @@ const JobPosting = ({ job, setFilterTags }) => {
       <div className="tags-container">
         {tagsList.map((tag, index) => {
           return (
-            <Tag key={index} className="tag" onClick={() => addFilterTag(tag)}>
+            <Tag
+              key={index}
+              className="tag"
+              onClick={() => addFilterTag([tag])}
+            >
               {tag}
             </Tag>
           );
