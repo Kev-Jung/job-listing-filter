@@ -1,0 +1,60 @@
+.filter-bar-container {
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 30px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 20px;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  max-width: 1100px;
+
+  @media (min-width: 900px) {
+    padding-inline: 30px;
+  }
+
+  @media (min-width: 1038px) {
+    margin-inline: auto;
+  }
+
+  .filter-tag-container {
+    margin-bottom: 10px;
+  }
+
+  // duplicate from JobPostings.scss
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    cursor: pointer;
+  }
+
+  .delete-btn {
+    display: inline;
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+
+    &:hover {
+      background-color: var(--featured-pill-color);
+    }
+
+    span {
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .clear-filters-btn {
+    font-weight: 700;
+    color: var(--text-color-grey);
+
+    &:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

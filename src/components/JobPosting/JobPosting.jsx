@@ -2,7 +2,7 @@ import "./JobPosting.scss";
 import Pill from "../Pill/Pill";
 import Tag from "../Tag/Tag";
 
-const JobPosting = ({ job }) => {
+const JobPosting = ({ job, setFilterTags }) => {
   const {
     company,
     logo,
@@ -18,6 +18,10 @@ const JobPosting = ({ job }) => {
   } = job;
 
   const tagsList = [role, level, ...languages, ...tools];
+
+  const addFilterTag = (tag) => {
+    setFilterTags((prevTags) => [...prevTags, tag]);
+  };
 
   return (
     <div
@@ -40,8 +44,12 @@ const JobPosting = ({ job }) => {
       </div>
 
       <div className="tags-container">
-        {tagsList.map((tag) => {
-          return <Tag>{tag}</Tag>;
+        {tagsList.map((tag, index) => {
+          return (
+            <Tag key={index} className="tag" onClick={() => addFilterTag(tag)}>
+              {tag}
+            </Tag>
+          );
         })}
       </div>
     </div>

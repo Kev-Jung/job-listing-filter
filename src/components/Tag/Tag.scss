@@ -1,16 +1,26 @@
-.tag {
+%shared-tag {
   font-size: 18px;
   padding: 8px 12px;
-  border-radius: 6px;
   background-color: var(--tag-bg);
+  color: var(--primary-color);
   font-weight: 700;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+  }
+}
+
+.tag {
+  @extend %shared-tag;
+  border-radius: 6px;
 
   &:hover {
     color: #fff;
     background-color: var(--primary-color);
   }
+}
 
-  @media (min-width: 900px) {
-    font-size: 16px;
-  }
+.filter-tag {
+  @extend %shared-tag;
+  border-radius: 6px 0 0 6px;
 }
